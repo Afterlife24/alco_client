@@ -1,0 +1,48 @@
+.visual-data {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.date-filters {
+    margin-bottom: 20px;
+}
+
+.date-filters select {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.chart-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.best-data {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.best-data h3 {
+    margin: 10px 0;
+}
+
+.show-all {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.show-all button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #36A2EB;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.show-all button:hover {
+    background-color: #2188c0;
+}
