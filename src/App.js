@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import VisualData from "./VisualData";
+import Inventory from "./Inventory";
+
 
 
 const App = () => {
@@ -186,24 +188,19 @@ const App = () => {
       <div className="sidebar">
         <h2>Menu</h2>
         <ul className="menu-list">
-          {["All Orders", "Pending Orders","Visual Data"].map((item) => (
-            <li
-              key={item}
-              className={`menu-item ${menuOption === item ? "active" : ""}`}
-              onClick={() => setMenuOption(item)}
-            >
-              <span className="menu-icon">
-                {item === "All Orders" ? "📦" :item==="Pending Orders"? "⏳":"📊"}
-              </span>
-              {item}{" "}
-              {item === "All Orders" && newOrderCount > 0 && (
-                <span className="badge">{newOrderCount}</span>
-              )}
-              {item === "Pending Orders" && pendingOrderCount > 0 && (
-                <span className="badge">{pendingOrderCount}</span>
-              )}
-            </li>
-          ))}
+          {["All Orders", "Pending Orders", "Visual Data", "Inventory"].map((item) => (
+    <li
+      key={item}
+      className={`menu-item ${menuOption === item ? "active" : ""}`}
+      onClick={() => setMenuOption(item)}
+    >
+      <span className="menu-icon">
+        {item === "All Orders" ? "📦" : item === "Pending Orders" ? "⏳" : item === "Visual Data" ? "📊" : "📋"}
+      </span>
+      {item}
+    </li>
+))}
+
         </ul>
         <div className="date-filters">
           <h3>Filter by Date</h3>
@@ -224,8 +221,10 @@ const App = () => {
       <p className="loading">Loading...</p>
     ) : error ? (
       <p className="error">{error}</p>
-    ) : menuOption === "Visual Data" ? ( // Fix: Use menuOption instead of view
+    ) : menuOption === "Visual Data" ? (
       <VisualData orders={orders} />
+    ) : menuOption === "Inventory" ? (
+      <Inventory />
     ) : (
       <>
         <h2>{menuOption}</h2>
@@ -234,6 +233,7 @@ const App = () => {
     )}
   </div>
 </div>
+
 
     </div>
   );
